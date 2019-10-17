@@ -1,11 +1,5 @@
 # Confidence Calibration
 
-Reference paper: 
-[1] [On Calibration of Modern Neural Networks](https://arxiv.org/abs/1706.04599)
-
----
-
-
 ## 1. Introduction
 - Calibrated Confidence: the probability associated with the predicted class label should reflect its ground truth correctness likelihood.
 
@@ -24,7 +18,7 @@ $$
 
 **Perfect Calibration**: 
 $$
-\mathbb{P}(\hat{Y}=Y | \hat{P}=p) = p, for \  p \in [0,1] \tag{2.2}
+\mathbb{P}(\hat{Y}=Y | \hat{P}=p) = p, \forall p \in [0,1] \tag{2.2}
 $$
 , where $\hat{P}$ is a continuous random variable.
 
@@ -142,5 +136,5 @@ $$
 , where $T$ is called the temperature, and it "softens" the softmax (i.e. raises the output entropy) with $T>1$. $T$ is optimized with respect to NLL on validation set.
 *Temperature scaling does not affect the model's accuracy. The model is equivalent to maximizing the entropy of the output probability distribution subject to certain constraints on the logits.*
 
- 
-
+### References: 
+[1] [On Calibration of Modern Neural Networks](https://arxiv.org/abs/1706.04599)
