@@ -128,7 +128,7 @@ $$
 \end{align}
 $$
 
-**Temperature Scaling (most useful method)**
+**$\color{red}{Temperature \ Scaling}$ (most useful method)**
 The simplest extension of Platt scaling. The new confidence prediction is
 $$
 \hat{q_i} = \max_{k}{\sigma_{SM}(\frac{z_i}{T}})^{(k)} \tag{3.5}

@@ -1,8 +1,7 @@
 # Cross Entropy and Log Likelihood
 
 - **Probability**: attaches to possible results. 是指在固定参数的情况下，事件的概率，必须是0-1，事件互斥且和为1. 我们常见的泊松分布、二项分布、正态分布的概率密度图描述的就是这个。
-- **Likelihood**: attaches to hypotheses.
-- 是指固定的结果，我们的参数的概率，和不必为1，不必互斥，所以只有两个likelihood的ratio（$\frac{L(\theta_1)}{L(\theta_2)} > 1$）是有意义的。
+- **Likelihood**: attaches to hypotheses. 是指固定的结果，我们的参数的概率，和不必为1，不必互斥，所以只有两个likelihood的ratio（$\frac{L(\theta_1)}{L(\theta_2)} > 1$）是有意义的。
 
 ## Single observation
 Given input $x$, the vector $\hat{y}=h(x)$ is of length $M$ (the number of label) and can be interpreted as the probability of each of $M$ possible outcomes occurring, according to the model represented by the neural network.
