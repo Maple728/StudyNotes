@@ -1,9 +1,12 @@
 ### 单层神经网络的Back Propagation Through Time (BPTT)计算
 假设
+
 $$
 C = A B
 $$
-，其中$C \in R^{3 \times 3}$，$A \in R^{3 \times 4}$，$B \in R^{4 \times 3}$，值分别如下：
+
+，其中 $C \in R^{3 \times 3}$ ， $A \in R^{3 \times 4}$，$B \in R^{4 \times 3}$ ，值分别如下：
+
 $$
 \begin{bmatrix}
 14 & 38 & 62 \\
@@ -23,12 +26,10 @@ $$
 \end{bmatrix}
 $$
 
-此时，求梯度$\frac{\partial C}{\partial A} \in R^{3 \times 4}$，矩阵shape与A的shape一致，具体如下：
+此时，求梯度 $\frac{\partial C}{\partial A} \in R^{3 \times 4}$ ，矩阵shape与A的shape一致，具体如下：
 
 $$
-\frac{\partial C}{\partial A}
-
-=
+\frac{\partial C}{\partial A} =
 \begin{bmatrix}
 \frac{\partial C}{\partial a_{11}} & \frac{\partial C}{\partial a_{12}} & \frac{\partial C}{\partial a_{13}} & \frac{\partial C}{\partial a_{14}} \\
 \frac{\partial C}{\partial a_{21}} & \frac{\partial C}{\partial a_{22}} & \frac{\partial C}{\partial a_{23}} & \frac{\partial C}{\partial a_{24}} \\
@@ -36,7 +37,7 @@ $$
 \end{bmatrix}
 $$
 
-，其中$a_{ij}$是标量scalar，$C$是矩阵，矩阵对标量的偏导数计算如下：
+，其中 $a_{ij}$ 是标量scalar， $C$ 是矩阵，矩阵对标量的偏导数计算如下：
 
 $$
 \frac{\partial C}{\partial a_{11}} = \sum_i^3 \sum_j^3 \frac{\partial c_{ij}}{\partial a_{11}}
@@ -47,7 +48,6 @@ $$
 $$
 \frac{\partial C}{\partial a_{11}} =
 \sum
-
 \begin{bmatrix}
 \frac{\partial c_{11}}{\partial a_{11}} & \frac{\partial c_{12}}{\partial a_{11}} & \frac{\partial c_{13}}{\partial a_{11}} \\
 \frac{\partial c_{21}}{\partial a_{11}} & \frac{\partial c_{22}}{\partial a_{11}} & \frac{\partial c_{23}}{\partial a_{11}} \\
@@ -59,14 +59,15 @@ b_{11} & b_{12} & b_{13} \\
 0 & 0 & 0 \\
 0 & 0 & 0
 \end{bmatrix}
-
 = b_{11} + b_{12} + b_{13} = 12
 $$
-，如此计算每一个C对A的偏导，就得到$\frac{\partial C}{\partial A}$。
+
+，如此计算每一个C对A的偏导，就得到 $\frac{\partial C}{\partial A}$ 。
 
 
 ### 多层神经网络的BPTT计算（Chain Rule）
 承接上述单层神经网络的梯度计算，假设loss或者上一层的输出对C的梯度为:
+
 $$
 \frac{\partial L}{\partial C} = 
 \begin{bmatrix}
@@ -110,4 +111,5 @@ b_{11} & b_{12} & b_{13} \\
 0 & 0 & 0
 \end{bmatrix} = 0 \times b_{11} + 1 \times b_{12} + 2 \times b_{13} = 20
 $$
-，如此计算L对A的每一个元素的偏导数即可得到上一层输出对A的梯度$\frac{\partial L}{\partial A}$。
+
+，如此计算L对A的每一个元素的偏导数即可得到上一层输出对A的梯度 $\frac{\partial L}{\partial A}$。
